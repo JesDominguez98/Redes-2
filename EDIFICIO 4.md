@@ -65,6 +65,19 @@ router bgp 400
 redistribute eigrp 100
 network 10.0.0.0 mask 255.255.255.252
 
+## METRICA Y DISTANCIA ADMINISTRATIVA
+interface se 0/0/0
+bandwidth 1000
+exit
+interface se 0/0/1
+bandwidth 1000
+exit
+
+router eigrp 100
+distance 180 130.168.30.0 0.0.0.255
+distance 180 130.168.40.0 0.0.0.255
+exit
+
 ## DENEGAR COMUNICACION ENTRE OFICINAS
 OFICINA 4 CON OFICINA 7
 access-list 1 deny 192.168.40.0 0.0.0.255
